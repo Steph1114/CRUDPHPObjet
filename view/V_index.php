@@ -8,7 +8,7 @@
 
         </div><p><br />
         <div class="row">               
-          <button><a href="view/V_add.php" class="btn btn-success">Ajouter un user</a></button>
+          <button class="btn-add"><a href="view/V_add.php" class="btn btn-success btn-add">Ajouter un user</a></button>
             <div class="table-responsive"><br />
                 <table class="table table-hover table-bordered"><br />
                     <thead>

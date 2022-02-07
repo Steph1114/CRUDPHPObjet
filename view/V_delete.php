@@ -34,8 +34,8 @@ include('head.php');
 
                 <br />
                 <div class="form-actions">
-                    <button type="submit" class="btn primary btn-danger">Yes</button>
-                    <a class="btn secondary" href="../index.php">No</a>
+                    <button type="submit" class="btn primary btn-delete btn-color">Yes</button>
+                    <button class="btn-read"><a class="btn" href="../index.php">No</a></button>   
                 </div>
                 <p>
 

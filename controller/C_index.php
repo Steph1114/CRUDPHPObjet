@@ -20,17 +20,17 @@
         echo '<td>';
 
         // attend un id en paramètre
-        echo '<a class="btn" href="view/V_read.php?id=' . $row['id'] . '">Read</a>';// un autre td pour le bouton d'edition (sous forme de lien)
+        echo '<button class="btn-read"><a class="btn" href="view/V_read.php?id=' . $row['id'] . '">Read</a></button>';// un autre td pour le bouton d'edition (sous forme de lien)
         echo '</td><p>';
         echo '<td>';
 
         // attend un id en paramètre
-        echo '<a class="btn btn-success" href="view/V_update.php?id=' . $row['id'] . '">Update</a>';// un autre td pour le bouton d'update (sous forme de lien)
+        echo '<button class="btn-update"><a class="btn btn-success btn-update" href="view/V_update.php?id=' . $row['id'] . '">Update</a></button>';// un autre td pour le bouton d'update (sous forme de lien)
         echo '</td><p>';
         echo'<td>';
 
         // attend un id en paramètre
-        echo '<a class="btn btn-danger" href="view/V_delete.php?id=' . $row['id'] . ' ">Delete</a>';// un autre td pour le bouton de suppression (sous forme de lien)
+        echo '<button class="btn-delete"><a class="btn btn-danger btn-delete" href="view/V_delete.php?id=' . $row['id'] . ' ">Delete</a></button>';// un autre td pour le bouton de suppression (sous forme de lien)
         echo '</td><p>';
         echo '</tr><p>';
     }

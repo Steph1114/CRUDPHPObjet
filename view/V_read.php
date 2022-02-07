@@ -145,7 +145,7 @@
                 <!-- s’il n’y pas d’id, on redirige vers l’index -->
                     <br />
                 <div class="form-actions">
-                    <a class="btn" href="../index.php">Back</a>
+                   <button class="btn-read"><a class="btn" href="../index.php">Back</a></button> 
                 </div>
                 <p>
 

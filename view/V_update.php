@@ -176,8 +176,8 @@
 
                 <br />
             <div class="form-actions">
-                <input type="submit" class="btn btn-success" name="submit" value="submit">
-                <button> <a class="btn" href="../index.php">Retour</a></button>  
+                <input type="submit" class="btn btn-success btn-update" name="submit" value="submit">
+                <button class="btn-read"> <a class="btn" href="../index.php">Retour</a></button>  
             </div>
             <p>
 
