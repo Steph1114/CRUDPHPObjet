@@ -1,7 +1,7 @@
 <?php 
     include ('model/connect.php'); //on inclut notre fichier de connection 
 
-    $pdo = Database::connect(); //on se connecte à la base 
+    $pdo = Database::getConnetion(); //on se connecte à la base 
 
     $sql = 'SELECT * FROM user ORDER BY id DESC'; //on formule notre requete 
 

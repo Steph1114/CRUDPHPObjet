@@ -12,7 +12,7 @@ if (null == $id) {
     header("location:index.php");
 } else {
     //on lance la connection 
-    $pdo = Database::connect();
+    $pdo = Database::getConnetion();
 
     //PDO : represente la connection entre php et un serveur de base de donnee
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) .

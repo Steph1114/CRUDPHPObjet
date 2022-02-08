@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
 
     // si les données sont présentes et bonnes, on se connecte à la base 
     if ($valid) {
-        $pdo = Database::connect();
+        $pdo = Database::getConnetion();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO user (name,firstname,age,tel, email, country,comment, job,url) values(?, ?, ?, ? , ? , ? , ? , ?, ?)";
         $q = $pdo->prepare($sql);

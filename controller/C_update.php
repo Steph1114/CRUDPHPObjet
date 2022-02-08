@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     if ($valid) {
 
         //on lance la connection 
-        $pdo = Database::connect();
+        $pdo = Database::getConnetion();
 
         //PDO : represente la connection entre php et un serveur de base de donnee
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     }
 } else {
 
-    $pdo = Database::connect();
+    $pdo = Database::getConnetion();
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

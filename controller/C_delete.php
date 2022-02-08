@@ -7,7 +7,7 @@ if (!empty($_GET['id'])) {
 }
 if (!empty($_POST)) {
     $id = $_POST['id'];
-    $pdo = Database::connect();
+    $pdo = Database::getConnetion();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "DELETE FROM user  WHERE id = ?";
     $q = $pdo->prepare($sql);
