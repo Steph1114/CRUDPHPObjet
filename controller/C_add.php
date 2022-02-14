@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
         $nameError = 'Please enter Name';
         $valid = false;
     } else if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-        $nameError = "Only letters and white space allowed";    
+        $nameError = "Only letters and white space allowed";
     }
 
     //verification champ firstname
@@ -45,20 +45,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
         $firstnameError = "Only letters and white space allowed";      //$nameError   
     }
 
-     //verification champ email 
+    //verification champ email 
     if (empty($email)) {
         $emailError = 'Please enter Email Address';
         $valid = false;
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailError = 'Please enter a valid Email Address';
-        $valid = false;       
+        $valid = false;
+    } elseif (!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,4}+$/", $email)) {
+        $emailError = 'Please enter a valid Email Address';
+        $valid = false;
     }
 
-    //verification champ age
+    //verification champ age //0 - 150
     if (empty($age)) {
         $ageError = 'Please enter your age';
-        $valid = false;      
+        $valid = false;
+    } elseif (preg_match("#^[0-9]*$#", $age)) {
+        if ($age > 150 || $age <= 0) {
+            $ageError = 'Please enter a valid age';
+            $valid = false;
+        }
+    } elseif (!preg_match("#^[0-9]*$#", $age)) {
+
+        $ageError = 'Please enter a valid age';
+        $valid = false;
     }
+
 
     //verification champ tel
     if (empty($tel)) {
@@ -66,13 +79,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
         $valid = false;
     } else if (!preg_match("#^0[1-68]([-. ]?[0-9]{2}){4}$#", $tel)) {
         $telError = 'Please enter a valid phone';
-        $valid = false;        
+        $valid = false;
     }
 
     //verification champ country
     if (!isset($country)) {
         $countryError = 'Please select a country';
-        $valid = false;       
+        $valid = false;
     }
 
     //verification champ comment
@@ -84,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     //verification champ job
     if (empty($job)) {
         $jobError = 'Please select a job';
-        $valid = false;       
+        $valid = false;
     }
 
     //verification champ url
@@ -107,4 +120,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
         header("Location: ../index.php");
     }
 }
-?>

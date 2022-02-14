@@ -1,9 +1,14 @@
 <?php
+    include_once('controller/C_User.php');
+
+
     include ('head.php');
 
 
-    //Loc = vue souhaiter de l'user
+    //Loc = vue souhaitee de l'user
     $loc = filter_input(INPUT_GET, "loc", FILTER_SANITIZE_STRING);
+
+    $c_user = new C_User();
 
     switch ($loc) {
 
@@ -16,7 +21,6 @@
           break;
 
         case 'read':
-          // include("../controller/C_read.php");
           include("view/V_read.php");
           break;
 
@@ -25,7 +29,6 @@
           break;
 
         case 'delete':
-          include("../controller/C_delete.php");
           include("view/V_delete.php");
           break;
 

@@ -1,9 +1,13 @@
+<?php
+include_once('controller/C_User.php');
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
-<?php
-    include ('view/head.php');
-?>
 
 <?php
     include('view/template.php');

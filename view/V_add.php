@@ -26,7 +26,7 @@
 
             <br />
 
-            <!-- Tester message d'erreur lie au nom qui sera rajouter comme une class bootstrap -->
+            <!-- Tester message d'erreur lié au nom qui sera rajouté comme une class bootstrap -->
             <div class="control-group <?php echo !empty($nameError) ? 'error' : ''; ?>">
                 <label class="control-label">Name</label>
 
@@ -51,7 +51,7 @@
 
                 <br />
                 <div class="controls">
-                    <input type="text" name="firstname" value="<?php echo !empty($firstname) ? $firstname : ''; ?>">
+                    <input type="text" name="firstname" placeholder="first name" value="<?php echo !empty($firstname) ? $firstname : ''; ?>">
                     <?php if (!empty($firstnameError)) : ?>
                         <span class="help-inline"><?php echo $firstnameError; ?></span>
                     <?php endif; ?>
@@ -69,7 +69,7 @@
 
                 <br />
                 <div class="controls">
-                    <input type="number" name="age" value="<?php echo !empty($age) ? $age : ''; ?>">
+                    <input type="number" placeholder="number between 0 to 150" name="age" value="<?php echo !empty($age) ? $age : ''; ?>">
                     <?php if (!empty($ageError)) : ?>
                         <span class="help-inline"><?php echo $ageError; ?></span>
                     <?php endif; ?>

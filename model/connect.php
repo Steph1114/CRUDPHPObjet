@@ -7,15 +7,17 @@
         private static $bdd = null;  //$cont = $bdd
 
         //Constructeur
-        public function __construct() { 
-          //  die('Init function is not allowed');
-        } 
+        // public function __construct() { 
+        //   //  die('Init function is not allowed');
+        // } 
 
         private static function connect()
         {
             self::$bdd = new PDO("mysql:host=" . self::$dbHost . ";dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword, array(PDO::ATTR_PERSISTENT => true));
             // set the PDO error mode to exception
             self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+         //   echo 'connected';
         }
     
         public static function getConnetion()

@@ -1,87 +1,36 @@
 <?php
+    include_once('model/M_User.php');
 
-include "C_core.php";
-include "model/M_User.php";
 
-class C_user extends C_core{
-    /**
-     * Le constructeur est notre fonction qui est appelé en 1er
-     */
-    function __construct(?string $action = null)
+    class C_User 
     {
-        //Dans tous les cas instancie un model User provenant de model
-        $this->model = new M_User();
+        private $m_user;
 
-        //Selon l'action demandée par l'utilisateur
-        switch ($action) {
-            case 'add':
-                $this->create();
-                break;
-
-            case 'read':
-                $this->read();
-                break;
-
-            case 'update':
-                $this->update();
-                break;
-
-            case 'delete':
-                $this->delete();
-                break;
-
-            default:
-                $this->index();
-                break;
+        function __construct()
+        {
+            $this->m_user = new M_User();
         }
-    }
 
-    public function index()
-    {
-        //effectue la requête du model et stock le résultat dans data qui sera récupére dans index.php
-        //pareil pour la vue
-        $this->data = $this->model->getAllUser();
-        $this->view = "user";
-    }
-
-    public function create()
-    {
-
-        $this->view = "create";
-        //Récupére les valeurs des inputs envoyé depuis le formulaire
-    
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)){
-            
-            include('C_add.php');
-            $result = $this->model->insertUser($name, $firstname, $age, $tel, $email, $country, $comment, $job, $url);
-                //Si insert réussi
-                if($result){
-                    $this->data = $result;
-                    $this->view = "user";
-                }else {
-                    $this->view = "Non valide";
-                }
+        public function getAllUsers()
+        {
+            return $this->m_user->getAllUsers();
         }
-       else {
-            echo "aucune donnée envoyée";
+        
+        public function getUserById($id)
+        {
+            if (!is_int($id)) {
+                header("Location: ../view/404.php");
+            }
+            return $this->m_user->getUserById($id);
         }
+
+        public function getToCreateUser($name, $firstname, $age, $tel, $email, $country, $comment, $job, $url)
+        {
+            return $this->m_user->createUser($name, $firstname, $age, $tel, $email, $country, $comment, $job, $url);
+        }
+
+
     }
 
-    public function read()
-    {
-        $this->view = "read";
-        include('C_read.php');
-    }
 
-    public function update()
-    {
-        $this->view = "update";
-        include('C_update.php');
-    }
-
-    public function delete()
-    {
-        $this->view = "delete";
-        include('C_delete.php');
-    }
-}
+?>
